@@ -1,4 +1,13 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "framework": null,
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
   "crons": [
     {
       "path": "/api/run-scraper",
