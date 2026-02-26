@@ -5,7 +5,7 @@ import { MilanunciosScraper } from "./scrapers/milanuncios";
 
 const MAX_LEADS_TOTAL = 50;
 
-async function main() {
+export async function ejecutarTodo() {
   console.log("=== Lead Generator Inmobiliario BCN 80km ===");
   console.log(`Inicio: ${new Date().toISOString()}`);
   console.log(`Límite total: ${MAX_LEADS_TOTAL} leads\n`);
@@ -55,7 +55,10 @@ async function main() {
   console.log(`Fin: ${new Date().toISOString()}`);
 }
 
-main().catch((err) => {
-  console.error("Fatal error:", err);
-  process.exit(1);
-});
+// Ejecución directa desde CLI
+if (require.main === module) {
+  ejecutarTodo().catch((err) => {
+    console.error("Fatal error:", err);
+    process.exit(1);
+  });
+}
